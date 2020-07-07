@@ -1,0 +1,18 @@
+def is_odd?(number)
+  odd_numbers = [1,3,5,7,9]
+  odd_numbers.include?(number.to_s[-1].to_i) ? true : false
+end
+
+# method using the remainder method
+
+def is_odd?(number)
+  number.remainder(2).abs == 1
+end
+
+
+puts is_odd?(2)    # => false
+puts is_odd?(5)    # => true
+puts is_odd?(-17)  # => true
+puts is_odd?(-8)   # => false
+puts is_odd?(0)    # => false
+puts is_odd?(7)    # => true

@@ -1,0 +1,5 @@
+def repeat(string,number)
+  number.times{|i| puts string}
+end
+
+repeat('Hello', 3)
