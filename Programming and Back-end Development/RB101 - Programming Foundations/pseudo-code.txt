@@ -1,0 +1,40 @@
+Keyword	meaning
+START	start of the program
+SET	sets a variable we can use for later
+GET	retrieve input from user
+PRINT	displays output to user
+READ	retrieve value from variable
+IF / ELSE IF / ELSE	show conditional branches in logic
+WHILE	show looping logic
+END	end of the program
+
+1)a method that returns the sum of two integers
+
+START
+  GET first integer
+  SET as number 1 variable
+  GET second integer
+  SET as number 2 variable
+
+  PRINT number1 + number 2
+END
+
+2) a method that takes an array of strings, and returns a string that is all those strings concatenated together
+
+START
+  SET empty result string
+  WHILE iterator < array length
+    append string onto string result variable
+  increase iterator by 1
+  PRINT result string
+END
+
+3) a method that takes an array of integers, and returns a new array with every other element
+
+START
+  SET new array
+  WHILE iterator < array length
+    IF array iterator odd(or even?)
+    append to empty array
+  PRINT new array
+END
