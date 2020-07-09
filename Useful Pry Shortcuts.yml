@@ -1,0 +1,9 @@
+Useful Pry Shortcuts
+
+require 'pry' (to get started)
+
+binding.pry
+
+CTRL+D to continue execution of program
+
+exit-program to exit the program itself
