@@ -20,7 +20,6 @@ LOOKUP =
 
 def hexadecimal_to_integer(string)
   array =  string.upcase.split('').map { |i| LOOKUP[i] }
-  p array
   array.inject { |a, i| a * 16 + i }
 end
 
