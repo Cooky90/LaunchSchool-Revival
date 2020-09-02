@@ -24,15 +24,12 @@ def string_to_integer(string)
 end
 
 def string_to_signed_integer(string)
-  if string[0] == '+'
-    string = string.gsub(/[^0-9]/,'')
-    string_to_integer(string)
-  elsif string[0] == '-'
-    string = string.gsub(/[^0-9]/,'')
-    string_to_integer(string) * -1
-  else
-    string_to_integer(string)
-  end 
+  negative_flag = false
+
+  negative_flag = true if string[0] == '-'
+
+  string = string.gsub(/[^0-9]/,'')
+  negative_flag ? string_to_integer(string) * -1 : string_to_integer(string)
 end
 
 p string_to_signed_integer('4321') == 4321
