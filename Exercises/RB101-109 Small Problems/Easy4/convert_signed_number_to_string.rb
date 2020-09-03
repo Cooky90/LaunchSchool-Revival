@@ -22,7 +22,7 @@ def signed_integer_to_string(number)
   if number < 0
     negative_flag = true
   elsif number == 0
-    return integer_to_string(number)
+    return '0'
   end
 
   result = integer_to_string(number.abs)
