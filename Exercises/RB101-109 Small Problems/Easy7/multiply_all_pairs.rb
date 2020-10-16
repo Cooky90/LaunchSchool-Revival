@@ -9,4 +9,8 @@ def multiply_all_pairs(array1, array2)
    result_array.sort
 end
 
+
+# The array method known as product is another way that this would be able
+# to have been achieved.
+
 p multiply_all_pairs([2, 4], [4, 3, 1, 2]) == [2, 4, 4, 6, 8, 8, 12, 16]
