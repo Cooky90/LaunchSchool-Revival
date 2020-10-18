@@ -1,9 +1,9 @@
-CONSONANTS = %w(A E I O U)
+VOWELS = %w(A E I O U)
 
 def double_consonants(string)
   string.chars.map do |char|
     if char =~ /[a-zA-Z]/
-    CONSONANTS.include?(char.upcase)? char : char * 2
+    VOEWLS.include?(char.upcase)? char : char * 2
   else
     char
   end
