@@ -1,5 +1,5 @@
 def get_grade(num1, num2, num3)
-  average = ((num1 + num2 + num3) / 3)
+  average = ((num1 + num2 + num3) / ARGV.length)
   case 
   when average.between?(90,100)
     'A'
