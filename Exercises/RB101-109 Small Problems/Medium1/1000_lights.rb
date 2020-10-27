@@ -50,7 +50,7 @@ def iterate_through_lights(number_of_lights)
 end
 
 def select_lights_on(lights_hash)
-  end
+end
 
 p iterate_through_lights(10)
 p iterate_through_lights(5)
