@@ -35,6 +35,10 @@ def initialise_lights(number_of_lights)
   hash
 end
 
+def select_lights_on(lights_hash)
+  lights_hash.select { |light_number,status| status == :on }
+end
+
 def iterate_through_lights(number_of_lights)
   lights_hash = initialise_lights(number_of_lights)
   1.upto(number_of_lights) do |n|
@@ -46,14 +50,12 @@ def iterate_through_lights(number_of_lights)
       end
     end
   end
-  lights_hash
-end
-
-def select_lights_on(lights_hash)
+  select_lights_on(lights_hash).keys
 end
 
 p iterate_through_lights(10)
 p iterate_through_lights(5)
+p iterate_through_lights(1000)
 
 
 
