@@ -15,3 +15,4 @@ p rotate_rightmost_digits(735291, 3) == 735912
 p rotate_rightmost_digits(735291, 4) == 732915
 p rotate_rightmost_digits(735291, 5) == 752913
 p rotate_rightmost_digits(735291, 6) == 352917
+p rotate_rightmost_digits(352917, 5) == 329175
