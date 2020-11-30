@@ -42,11 +42,13 @@ show-doc map`
 * Using `binding.pry`.
   * A binding is something that contains references to any variables that were in scope at the point it was created.
   * pry interupts the exection of the program and allows for interrogation of program inc variables etc.
-  * 'whereami 10' would show 10 lines of code above and below where the current binding.pry invocation is.
+  * `whereami 10` would show 10 lines of code above and below where the current `binding.pry` invocation is.
   * exit to exit current iteration.
   * exit! to completely exit pry.
 
 # Pry-byebug
 * Ruby gem with additional features.
 * `require pry` and `require pry-byebug` both required.
-* `next` keyword can be used to iterate through control flow i.e. if/elsif.
+* `next` keyword can be used to iterate through control flow i.e. if/elseif.
+* `continue` is used to skip to the next complete iteration.
+* `step` is can be used to look closer into methods that produced the return value.
