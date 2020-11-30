@@ -30,12 +30,12 @@ Debugging With Pry
 
 `pry` called in IRB for example, allows a user to interact with an object itself, including using unix based syntax on objects such as 'cd' on a object in which methods can then be called on it, methods availble for that object or even show documentation for that method.
 
-`pry`
-`arr = [1,2,3]`
-`cd arr`
-`ls` #lists all methods
-`first` #1
-`show-doc map`
+`pry`\
+`arr = [1,2,3]`\
+`cd arr`\
+`ls` #lists all methods\
+`first` #1\
+`show-doc map`\
 
 # Invoking pry at runtime
 
