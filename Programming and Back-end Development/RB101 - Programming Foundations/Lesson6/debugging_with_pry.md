@@ -35,7 +35,7 @@ Debugging With Pry
 `cd arr`\
 `ls` #lists all methods\
 `first` #1\
-`show-doc map`\
+`show-doc map`
 
 # Invoking pry at runtime
 
