@@ -10,6 +10,8 @@ INITIAL_MARKER = ' '
 PLAYER_MARKER = 'X'
 COMPUTER_MARKER = 'O'
 
+FIRST_MOVE = 'choose'
+
 def prompt(msg)
   puts "=> #{msg}"
 end
@@ -69,10 +71,12 @@ def player_places_piece!(brd)
 end
 
 def computer_places_piece!(brd)
-  if threat_check(brd)
-    square = threat_check(brd)
-  elsif opportunity_check(brd)
+  if opportunity_check(brd)
     square = opportunity_check(brd)
+  elsif threat_check(brd)
+    square = threat_check(brd)
+  elsif brd[5] == INITIAL_MARKER
+    brd[5] = COMPUTER_MARKER
   else
     square = empty_squares(brd).sample
   end
@@ -123,18 +127,33 @@ def display_score(scores)
   puts scores
 end
 
+def play_a_round(first,second,brd)
+  order_of_moves = [first, second]
+  move_lookup = {'computer' => method(:computer_places_piece!), 'player' => method(:player_places_piece!) }
+
+  order_of_moves.each do |move|
+    move_lookup[move].(brd)
+    return if someone_won?(brd) || board_full?(brd)
+  end
+end
+
 loop do
   scores_hash = { 'Player' => 0, 'Computer' => 0 }
   loop do
     board = initalize_board
+    until FIRST_MOVE == 'player' || FIRST_MOVE == 'computer'
+      prompt "Who goes first, enter 'player' or 'computer'"
+      FIRST_MOVE = gets.chomp.downcase
+    end
     loop do
       display_board(board)
       display_score(scores_hash)
-
-      player_places_piece!(board)
-      break if someone_won?(board) || board_full?(board)
-
-      computer_places_piece!(board)
+      case FIRST_MOVE
+      when 'player'
+        play_a_round('player','computer',board)
+      when 'computer'
+        play_a_round('computer','player',board)
+      end
       break if someone_won?(board) || board_full?(board)
     end
 
