@@ -20,8 +20,7 @@ end
 def display_board(brd)
   system 'clear'
   puts "You're a #{PLAYER_MARKER}. Computer is a #{COMPUTER_MARKER}."
-  puts "First to #{WINNING_REQUIREMENT} wins."
-  puts ""
+  puts "First to #{WINNING_REQUIREMENT} wins. \n\n"
   puts "     |     |"
   puts "  #{brd[1]}  |  #{brd[2]}  |  #{brd[3]}  "
   puts "     |     |"
@@ -32,8 +31,7 @@ def display_board(brd)
   puts "-----|-----|-----"
   puts "     |     |"
   puts "  #{brd[7]}  |  #{brd[8]}  |  #{brd[9]}  "
-  puts "     |     |"
-  puts ""
+  puts "     |     | \n\n"
 end
 # rubocop:enable Metrics/AbcSize
 
@@ -54,7 +52,8 @@ def joinor(arr, delimiter = ',', last_join = 'or')
   when 1
     arr.first.to_s
   else
-    arr.slice(0..(arr.size - 2)).join("#{delimiter} ") + " #{last_join} #{arr[-1]}"
+    string_with_delimiter = arr.slice(0..(arr.size - 2)).join("#{delimiter} ")
+    string_with_delimiter + " #{last_join} #{arr[-1]}"
   end
 end
 
@@ -105,8 +104,9 @@ def detect_winner(brd)
 end
 
 def opportunity_check(brd)
-    WINNING_LINES.each do |line|
-    if brd.values_at(*line).count(COMPUTER_MARKER) == 2 && brd.values_at(*line).count(INITIAL_MARKER) == 1
+  WINNING_LINES.each do |line|
+    if brd.values_at(*line).count(COMPUTER_MARKER) == 2 \
+      && brd.values_at(*line).count(INITIAL_MARKER) == 1
       return line[brd.values_at(*line).index(INITIAL_MARKER)]
     end
   end
@@ -115,7 +115,8 @@ end
 
 def threat_check(brd)
   WINNING_LINES.each do |line|
-    if brd.values_at(*line).count(PLAYER_MARKER) == 2 && brd.values_at(*line).count(INITIAL_MARKER) == 1
+    if brd.values_at(*line).count(PLAYER_MARKER) == 2 \
+      && brd.values_at(*line).count(INITIAL_MARKER) == 1
       return line[brd.values_at(*line).index(INITIAL_MARKER)]
     end
   end
@@ -127,13 +128,14 @@ def display_score(scores)
   puts scores
 end
 
-def play_a_round(first,second,brd)
+def play_a_round(first, second, brd)
   order_of_moves = [first, second]
-  move_lookup = {'computer' => method(:computer_places_piece!), 'player' => method(:player_places_piece!) }
+  move_lookup = { 'computer' => method(:computer_places_piece!),
+                  'player' => method(:player_places_piece!) }
 
   order_of_moves.each do |move|
     move_lookup[move].(brd)
-    return if someone_won?(brd) || board_full?(brd)
+    break if someone_won?(brd) || board_full?(brd)
   end
 end
 
@@ -141,18 +143,20 @@ loop do
   scores_hash = { 'Player' => 0, 'Computer' => 0 }
   loop do
     board = initalize_board
+
     until FIRST_MOVE == 'player' || FIRST_MOVE == 'computer'
       prompt "Who goes first, enter 'player' or 'computer'"
       FIRST_MOVE = gets.chomp.downcase
     end
+
     loop do
       display_board(board)
       display_score(scores_hash)
       case FIRST_MOVE
       when 'player'
-        play_a_round('player','computer',board)
+        play_a_round('player', 'computer', board)
       when 'computer'
-        play_a_round('computer','player',board)
+        play_a_round('computer', 'player', board)
       end
       break if someone_won?(board) || board_full?(board)
     end
