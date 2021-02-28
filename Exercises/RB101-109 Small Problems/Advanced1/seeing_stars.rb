@@ -13,7 +13,7 @@ end
 
 def star(num)
   first_half_pattern_array = []
-  inner_space = star_spacing / 2
+  inner_space = (num -3) / 2
   outer_space = 0
 
   (num / 2).times do |_|
@@ -22,7 +22,7 @@ def star(num)
     inner_space -= 1
     outer_space += 1
   end
-  puts ('*' * num).to_s
+  puts ('*' * num)
   first_half_pattern_array.each { |string| puts string }
 end
 
