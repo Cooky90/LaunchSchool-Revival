@@ -1,0 +1,18 @@
+On lines 3-5 we invoke the select method on the local variable arr and pass in the do..end block as an argument. As the select method iterates over each element in the array, it passes it to the block parameter n. The code on line 4 adds 1 to n , but nothing is done with this.
+
+
+------------------
+local variable `animal` is initialised and assigned to a string object with the value of dog.
+
+The `loop` method is invoked, a block is passed in as an argument. The block is defined with one parameter called animal.
+
+Within the block, the block paramter is re-assigned to the string object "cat". 
+Break keyword is then used to break out of the loop.
+
+puts method is invoked with the local variable animal passed to it as an argument. "dog" is output and nil is returned.
+
+This demonstrates the concept of variable shadowing, if the block paramter had a different name to the local variable, the local variable would actually have been re-asigned to the string object with a value of "cat". However as the block parameter had the same name, the outter scope variable is 'disgarded'
+
+------------------
+
+Block is executed once for each iteration of collection, return value of block determines return value of the ... method.

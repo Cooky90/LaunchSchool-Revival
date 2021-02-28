@@ -1,0 +1,409 @@
+RB109 Written Test Paper
+
+https://docs.google.com/document/d/16XteFXEm3lFbcavrXDZs45rNEc1iBxSYC8e4pLhT0Rw/edit#
+
+Local Variable Scope
+
+Q1
+
+On line 1, the local variable a is initialised and assigned to the string object Hello.
+One line 2 the local variable b is initialised and assigned to the same string object a is referencing.
+One line 3 the local variable a is re-assigned to the string object Goodbye.
+On line 4 puts is called on the local variable a and Goodbye is output with nil being returned.
+On line 5 puts is called on the local variable b and Hello is output with nil being returned.
+This code demonstrates the concepts of variable assignment, re-assignment and variables as pointers.
+
+Q2
+
+One line 1, the local variable a is initialised and assigned to the integer object 4.
+One lines 3 the loop method is invoked with lines to 3-7 defining a block.
+Within the block local variable a is re-assigned to the integer object 5
+The local variable b is initialised and assigned to the integer object 3
+The loop executes once as the keyword break is used to break out of the loop.
+Puts is called on local variable a and 5 is output with nil being returned
+Puts is called on local variable b and 3 is output with nil being returned
+This code demonstrates local variable scoping and local variable assignment and re-assignment
+
+Q3
+
+On line 1 the local variable a is initialised and assignment to the integer object 4
+On line 2 the local variable b is initialised and assignment to the integer object 5
+The loop method is invoked on line 3 with lines 3-7 defining a block which is passed to the loop method as an argument
+Within the block the local variable c is initialised and assigned the integer object 3
+The local variable a is re-assigned to the integer object c is referencing 3
+Keyword break is used to break out of the loop
+Puts is called on local variable a and 3 is output with nil being returned
+Puts is called on local variable b and 2 is output with nil being returned
+
+This code demonstrates local variable scoping in particular how local variables initialised outside a block can then
+be accessed from within a block. (Outer to inner scope).
+
+Q4
+
+A method definition takes place by the keywords def..end with one parameter that can be passed in.
+i local variable is initialised and assigned tom the value 3
+loop method invoked with block defined, withion the block puts is called on the string object passed in via the parameter.
+i is re-assigned to the return value of i - 1
+a conditional is evaluated, in which is i is equal to 0 we are to break out of the loop
+Hence, we have 3 iterations of the loop until it reaches 0, string object 'hello' is output 3 times.
+This code demonstrates the concept of local variable scope in particular how a block within a method invocation still has
+access to variables passed in as an argument.
+
+Q5
+
+The outputs string object Hello and then Goodbye after the greetings method is invoked.
+It does this because the local variable word which references the string object "Hello" is passed into the greetings
+method as an argument. First the str argument is output and then puts is called on the string object Goodbye.
+
+This code demonstrates the concept of local variables and in particularly how local variables can be accessed within a method when the method definition uses a parameter in order to pass the variable in.
+
+Q6
+
+An array object of integer objects is initialised and assigned to the arr local variable.
+Two more local varibales are initialised, counter and sum in which both as assigned to the integer object value of 0.
+Loop method invoked in which a block is defined, within the block sum is re-assigned to the value of arr[counter],
+counter currently 0 so the sum local variable is reassigned to the return value of sum + 1(arr[0] == 1).
+The counter is re-assigned to the return value of counter + 1. A conditional is evaluated in which if the return value is true the loop would be broken by keyword break.
+The puts method is called on the a string object which also interpolates the return value of local variable.
+
+This code demonstrates the concept of variable scope and how local variables initialised outside of the block scope can be accessed and re-assigned within the block's scope. We can see on the last line after the local variable has been accessed within the block and re-asgned it is still accessible after the block invocation.
+
+Q7
+
+local variable a is assigned to the string object "Bob"
+times method is invoked on the 5 integer and a block is defined and passed to the times method. The block parameter is not 
+used in this scenario. With the block a is reassigned to the string object "Bill" 5 times.
+The puts method is called on the a local variable which outputs Bill and returns nil.
+
+Q8
+
+The local variable animal is initialised and assigned the string object "dog"
+A look is defined with an used parameter (usually _), animal local variable is re-assigned to string object "cat"
+var local variable initalised within scope of block and assigned to the string object "ball"
+break statement used to exit the loop
+puts called on animal local variable which outputs cat and returns nil
+puts method called on var local variable which raises a NameError - undefined local var or method 'var'
+
+This demonstrates the concept of variable scope and how variables initialised outside a block can be accessed (outer to inner scope) but variables initialised within the scope of a block (inner scope) cannot be accessed in an outer scope.
+
+Variable Shadowing
+
+Q1
+
+local varible a is initialised and assigned to the integer object 4
+local varible b is initialised and assigned to the integer object 2
+Times method is invoked on the 2 integer, a block is defined with a parameter named a
+a is reassigned to integer object 5
+puts method is called on the a object
+
+5 is output twice, as despite the block having access to the local variable a, the block parameter is also name the same so
+this is referenced within the scope of the block when a is to be evaluated and the local variable a from the outer scope is
+'disgarded'.
+
+Puts is called on the a local variable, 4 is output and nil is returned/
+Puts is called on the local variable b, 2 is output and nil is returned.
+
+This code demonstrates the concept of variable shadowing, it highlights how when a block parameter has the same name of a local variable it has access to, the local variable in the outer scope is not used and the block paramter is.
+
+Q2
+
+The local variable n is initialised and assigned to the integer object 10
+
+The times method is invoked on the integer object 1, a blocked is defined with the parameter n.
+Within the block n is re-assigned to the integer object 11. The n in this instance is referencing the block parameter n,
+not the local variable n despite the block having access to it. This is due to how variable shadowing works, as they both
+are named the same (n), the block disregards the outer scope local variable and n references the block parameter.
+
+The puts method is invoked on local variabl n which references the integer object 10. 10 is output and nil is returned.
+
+Q3
+
+Local variable animal is initialised and assigned to the string object "dog".
+
+Loop method is invoked, in which a block is defined and passed to the loop method.
+The block definition includes a parameter named animal. 
+Within the block the animal is reassigned to the striong object cat, however animal refers to the block parameter
+in this instance, not the local variable initialised outside the block despite the block having access to it.
+
+This is due to variable shadowing, as the local variable and block paramter are named the same the block disregards the outer scope local variable and animal reference the block parameter in this instance.
+
+break statement is used to break out of the loop
+
+puts method is invoked on the local variable animal, dog is output and nil is returned.
+
+Object Passing/Variables As Pointers
+
+Q1
+
+Local variable a is initialised and assigned the string object "hi there".
+b is initialised and is assigned to the object that local variable a is referencing.
+a is reassigned to string object "not here".
+
+a references string object "not here", b references the string object "hi there".
+
+This is a demonstration of the concept of variables as pointers. A is assigned and pointing to a space in memory where the string object "hi there" exists. b is then assigned to a, which in effect means it is also pointing to(or referencing) the space in physical memory where the string object "hi there" is. Local variable a is then reassigned to string object "not here" which in eseentially means a is now pointing(referencing) to a different place in memory, a place where "not here" exists. B however still references the original "hi there" string object.
+
+Q2
+
+Local variable a is initialised and assigned to the string object "hi there".
+Local variable b is initialised and assigned to the string object local variable a is referencing, "hi there".
+The string method << is invoked on local variable a. a is referencing the string object "hi there", as the << is a destructible method it mutates the string object and appends ", Bob" to the string object. a is now referencing the newly mutated string object "hi there, Bob", b would also evaluate to the same value as it is pointing(referencing) the same string object.
+
+Q3
+
+Local variable a is initialised and assigned to an array object containing integers.
+Local variable b is initalised and assigned to the object local variable a is referencing.
+Local variable c is initialised and assigned to the return value of a.uniq, when uniq is called on local variable a it returns [1, 2, 3] (a new array with duplicated elements removed).
+
+a and b reference the original array [1, 2, 3, 3], however c reference the return value of the uniq method invocation ([1, 2, 3]). 
+
+If c = a.uniq! had been called then a,b and c would be referencing the object [1,2,3] as uniq! is a destructive method
+and doesn't return a new array but mutates the array meaning all a,b and c would all be pointing at the same object.
+
+Q4
+
+A method called test is defined which has one parameter (b). Within the method definition, map is invoked on the b parameter when passed into the method. A blocked is defined with a parameter named letter, a string object is returned on each iteration with the string interpolation used to ensure the value of letter is returned within the string object.
+
+Local variable a is initialised and assigned an array object, which contains string objects.
+
+The test method is invoked and the local variable a is passed as an argument.
+
+The method returns a new 3 element array with string objects referencing each of the array elements i.e. ["I like the letter: a","I like the letter: b","I like the letter: c"]. local variable a still references the original array that was passed into the method, however is map! would have been called the elements within the array would have been mutated as map! is a destructive method and mutates the caller array.
+
+This demonstrates the concept of object passing and variables as pointers, the local variable is passed into the method as an argument and is able to be accessed within the method, no mutating method was called so the original variable that was passed in still reference that very same object.
+
+Q5
+
+Local variable a is initialised and assigned to the float object 5.2
+Local variable b is initialised and assigned to the float object 7.3
+Local variable a is re-assigned to the float object b is referencing
+Local variable b is then re-assigned to the return value of b + 1.1
+a returns 7.3 and b returns 8.4
+
+Why? a was re-assigned to reference the float object local variable b was referencing (7.3) and then local variable b
+was re-assigned to the return value of b + 1.1
+
+This demonstrates the concept of objects as pointers, when re-assignment occurs any other variables that may be pointing(reference) the same space in memory does not change. To clarify with an example, when b is re-assigned and the reference changes it does not affect the reference of local variable a.
+
+Q6
+
+A method is defined with one parameter. Local variable test_str is initialised and assigned to the string object "Written Assessment". The test method is then invoked with the test_str local variable passed to the method as an argument.
+
+Within the method definition, the object that is passed in is re-assigned to the result of string + '!'. The string method + creates a new string object so str is now referencing a new string. downcase! is called on the str local variable string object, as this is a destructive method it mutates the string.
+
+The method puts is called on test_str which ouputs "Written Assessment" and returns nil
+
+This peice of code demonstrates the concept of object passing and variables as pointers, if the str string object had never been re-assigned to a new string object the string object that was passed in as an argument would have been mutated by the destructive method downcase! meaning when puts was called it was still calling the same object it always reference, but no mutation had occured as in the method definition a new string was created for which the mutation would occur.
+
+Q7
+
+A method is definited with two parameters. Local variable a is initialised and assigned to the integer object 3.
+Local variable b is initialised and assigned to the return value of the plus method invocation, passing in local variable a
+and integer 2 as the second argument. Within the method definition local variable x is re-assigned to to the return value of x + y (x.+(y) as the syntactical sugar hides that + is really a method).
+
+Puts method is called on local variable a, outputting 3. Puts method called passing in local variable b, outputting 5 returning nil. This demonstrates the concept of object passing and variables as pointers; a is passing into the plus method
+but is still references the integer object 3 and despite the re-assignment within the method definition the reference does not change. b now references the return value of the plus method being evaluated with the two parameters that are passed in.
+
+Q8
+
+A method is defined that with one parameter. Within the method definition the string method << is called on the parameter with a string object 'b' passed as an argument to the << method. << is a destructive method, which means the caller is mutated. 
+
+Local variable y is initialised and assigned to the string object 'a'. The increment method is invoked with the y string variable passed to the method as an argument. 
+
+Puts method is invoked with the y local variable passed as an argument. ab string object is output with nil returned.
+
+This demonstrates the concept of object passing and variables as pointers, string object referenced in a variable was passed to the method. Within the method definiton the string is mutated, as the local variable is still reference the same string object in memory, when puts is invoked it it the newly mutated string that is output. y still references (points) to the same object, it has just been mutated now.
+
+Q9
+
+A method is defined with one parameter. Within the method definition the parameter is re-assigned to a string object 'bob'.
+The local variable name is initialised and assigned the string object 'jim'.
+The change_name method is invoked with the name variable passed in as an argument.
+The puts method with the name variable as an argument. 'jim' is output and nil is returned.
+
+This demonstrates the concept of object passing and more specifically of how re-assignment when an object is passed into a method does not change the reference of where the object that was passed in is pointing to.
+
+Q10
+
+This code returns the string object 'Jim' when puts is invoked with the local variable name being passed in.
+The return value is nil. When the local variable name is passed in to the object, the destuctive method capitalize!
+is called on the object which mutates it. As the local variable is references the space where this string sits in
+memory, it now references a mutated string 'Jim'.
+
+This demonstrates object passing and variables as pointers, in particular how usiong destructive methods the
+object outside the method can still be affect (more so the object it is referencing).
+
+Object Mutability / Mutating Methods
+
+Q1
+
+s has a value of 'HELLO!' and t has a value of 'HELLO!', this is because two destructive methods are called on the
+object passed in, so the object the local variable references has been mutated which is why puts demonstrates these changes when output. This demonstrates object mutability in particular methods than mutate the caller.
+
+Q2
+
+s has a value of hello and t has a value of HELLO! This is because value is reassigned in the method to a new string object, the return value of value.upcase.
+
+Q3
+
+s has a value of 'helloxyz', t has a value of 'HELLOXYZ!', this is because initially a destructive method is called
+on the object passed in to the method, then it is a re-assigned to a new string object. The result of value.upcase,
+that newly created string is mutated via the concat method.
+
+Q4
+
+s has a value of 'HELLO!' and t has a value of 'HELLO!', the reason why is although the value passed in as an argument
+is re-assigned, it is still referencing the same object. It is not a new string, the original string is mutated. And then
+again with the concat method.
+
+Q5
+
+s references a value of 'abc' and t returns 'axc'. This is because string index assignment replaces part of a string, which in effect mutates that string. A new string is not returned. Think of it works with an array, you can re-assign the elements within an array but the array.object_id still stays the same. This demonstrates object mutability, in particular mutating methods like []=.
+
+Q6
+
+a references a string object 'hello world'. When the puts method is called on with the a local variable passed in as an argument it returns nil and outputs 'hello world'. The reason why this value is output is because within the a_method def
+ which is when the string is passed in a destructive method is used on the object which mutates it.
+
+ Q7
+
+??? Pointless question
+
+Q8
+
+Local variable a is initialised and assigned to an array object containing three string objects.
+The string method []= method is invoked on local variable a which references an array object. 
+Puts method is invoked with local variable a passed in as an argument.
+Each element is output ('a', '-', 'c') on new lines and nil is returned.
+
+The reason why the array is mutated is because []= is a destructive method (element assignment), a still references
+the same array object, however the second element now references a new object.
+
+Q9
+
+add_name method is defined on lines 1-3 with two parameters. Within the method definition the first parameter is re-assigned to the return value of the the first parameter.+([name]).
+
+Local variable names is initialised and assigned to an array object containing two elements of string objects.
+the add_name method is invoked with the names local variable passed in as an object and a string object.
+puts method is invoked with names local variable passed in as argument, ['bob', 'kim'] is output and nil returned.
+
+This demonstrates mutable methods, array + method is non-destructive and returns a new array object. If it had been 
+destuctive such as << it would have mutated the original object that is passed in, meaning when puts was invoked
+['bob', 'kim', 'jim'] would be the object that would be passed in.
+
+Q10
+
+Literally just explained this above, as << is used this time it mutates the original object passed in to the method.
+
+Each, Map, Select
+
+Q1
+
+Local variable array is initialised and assigned to an array object containing 5 integer objects.
+The select method is invoked on the array local variable which references an array object.
+A block is defined which takes one parameter which is passed to the select method as an argument.
+
+1,3,5 are output and an empty array is returned by the select method. The reason why an empty array is returned is because
+the select method uses the return value of the block as as no values are evaluated as truthy (puts returns nil) no elements are selected.
+
+This demonstrates the concept of the evaluation of truthy/falsey values within selective collection methods.
+
+Q2
+
+A local variable is initialised and assigned to an array object containing integers. The select method is invoked
+on the local variable which references the array object. An array containing integers that are odd numbers is returned, this is due to the odd? method returning true when invoked on odd number integers.
+The select method is invoked on the local variable, select also takes a block in which the block has one parameter.
+An array containing odd integers is returned by the select method.
+
+Q3
+
+The code returns a new array object which contains all the elements the block passed to the select method. This is because
+all of the block's return values evaluated to true. The select method is a selective collection method which selects any block return values that are truthy. The array that is returned by the select method is assigned to a new variable.
+
+Q4
+
+An empty array is returned due to the block's returning nil on each iteration. As select only take the elements in which the block's return value evaluates to a truthy value, none of the elements are selected in this scenario.
+
+Q5
+
+An array containing booleans is returned. Map is a transformative method which returns a new array containing objects based on the block's return value, as the starts_with? method returns a boolean object that is what the map method uses to populate the array object that is returned. The array is assigned to a local variable that has been initialised.
+
+Q6
+
+The each method is called on the arr local variable which references an array object. puts method in the block with the n local variable passed to the method on each iteration. Each element is output, the each method returns the original caller object. 
+
+Q7
+
+An array of integers is returned, each of the integers is 1 number higher compared to the array the map method was called on. The reason this is happens is because returns an array of elements based on the return value of the block. n being each element of the caller array, the return value is whatever n + 1 evaluates to.
+
+Q8
+
+An array of boolean values is returned, the first element being false and all the following elements all true. This is similar to the above answer, as the return value of the > operator will return a boolean, depending on which boolean is returned that is what is used to populate the elements in the array the map method returns.
+
+Q9
+
+An array of nil objects are returned, this is due to puts being called last in the block. As puts method returns nil for each iteration, this is the return value that the map method uses to populate the elements in the new array object that is returned.
+
+Q10
+
+An array containing three elements, each element is string object 'hello'. The map method iterates through each of the elements of the caller object, however the value the local variable a is referencing is the return value of the block. It is the block's return value that is used to populate the elements that the new array object the map method returns.
+
+Q11
+
+The caller array object is returned by the each method. Each element is output due to the puts method invocation within the block, in which each element is passed to it for each iteration.
+
+This demonstrates the concept of using collection methods to iteration through collections and highlights the important of what these types of collections method do with the return values. As we can see, the each method does not do anything with the return value of the block.
+
+Other Collection Methods
+
+Q1
+
+TrueClass object true is returned, this is due to the evaluation of the block. The any? method returns false unless the block returns true at any point in which true is returned. The iteration through the collection stops once the block has returned true.
+
+Q2
+
+Similar to the answer above, the any? method takes a block. Within this block defintion the values of the hash are evaluated with the > operator to check if any of them are larger than 4 characters. As none of the values evaluate to true, the block returns false each iteration and so the any? method returns boolean false in this instance.
+
+Q3
+
+False is returned as the block must return true for each element within the element in order for the all? method to return true. The method stops iterating any further once the first false is returned from the block as logically the block must return true for each element. 
+
+Q4
+
+TrueClass object true is returned. The all? hash method requires the block to return true for each key value pair that is evaluated. If false is returned by the block then the all? method returns false. As each value is equal to or over the length of 3, true is returned from each block invocation.
+
+Q5
+
+A string object is output with each element and index interpolated into the string on each iteration. Each with index returns the caller object which in this case is an array object.
+
+Q6
+
+An array object(array passed in to each_with_object as an argument) is returned containing three string objects. For each iteration, the block parameter pair represents the key-value pair in an array format [key, value]. The array method last is invoked on the array and the last element of the array is returned, this value is then appended to the array object that was passed in as argument to the each_with_index method.
+
+Q7
+
+A hash object(the hash object that is passed in to the each_with_object method as an argument). The hash contains key-value pairs that are switched around compared to the original hash.
+
+The hash key assignment method usually works as : hash[key] = value but we can see the value is used as the key in this instance and the key block parameter from the caller hash object the each_with_object method is infact used as the value.
+
+Q8
+
+The return value is a nested array object containing elements that returned true when evaluated within the block and elements that returned false when evaluated in the block. The first sub-array contains elements that returned true when evaluated in the block and the second sub-array contains elements that returned false when evalauted in the block.
+
+Multiple assignment is used to initialise and assign the first and second element of the sub array to local variables.
+
+Truthiness
+
+Q1
+
+"Hello is truthy" is output. Nil is returned. Local variable a is initialised and assigned to the string object "Hello". The first if statement of the conditional is evaluated, a evaluates to neither nil or false so is therefore considered to be a truthy value in Ruby meaning the conditional conditions are met.
+
+This demonstrates the concept of truthiness within Ruby, a !== true yet a == truthy within Ruby.
+
+Q2
+
+local variable var is initialised and assigned to the return value of method test
+
+The method definiton of test is a puts method invocation with a string object passed to it. Test is invoked in order for a return value to be assigned to var, as puts returns nil this value is assigned to the local variable.
+
+The first branch of the conditional is not met, as the local variable is references the nil object. Meaning, the else part of the conditional is executed and puts method is called outputting the string that is passed as an argument. Nil is the return value of the puts method invocation. 

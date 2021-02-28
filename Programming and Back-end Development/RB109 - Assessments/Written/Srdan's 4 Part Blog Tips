@@ -1,0 +1,28 @@
+Srdan's 4 Part Blog Tips
+
+- Use markdown, backticks required!!
+- Answer in paragraphs!
+- Answers must be concise and precise. Talk about what affect concept has etc.
+
+Methods defined with parameters, methods are called with arguments.
+
+Loop is a method (Kernel.loop) Pass in do.. end block as argument.
+
+Get used to a lot of passing in as an argument
+
+i -= 3 , this is reassignment and + - * / are methods. I.e. i.-(1)
+
+Think about what is output and what is returned i.e. hello world string and nil etc
+
+Expressions are evaluated and have return values based on that evaluation
+
+Scoping, remember inner can't outer, but outer can inner.
+
+Each, map and select
+
+Iterate through collection, yield to block, puts value or block parameter or whatever, each doesn't care about
+return value of the block but map does!
+
+Remember ints and symbols always occupy same physical space in memeory. Same objects always!
+
+Remember += doesn't mutate, it is reassignment!
